@@ -2,7 +2,7 @@
 
 set -eux
 
-HOST="https://develop.opencast.org"
+HOST="http://localhost"
 USER="admin"
 PASSWORD="opencast"
 WORKFLOW='fast'
