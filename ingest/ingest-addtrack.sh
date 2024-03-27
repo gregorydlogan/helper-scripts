@@ -2,7 +2,7 @@
 
 set -eux
 
-HOST="https://develop.opencast.org"
+HOST="http://localhost"
 if [ $# -ge 1 ]; then
   HOST=$1
 fi

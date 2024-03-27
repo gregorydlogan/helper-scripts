@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SERVER='https://develop.opencast.org'
+SERVER='http://localhost'
 LOGIN='admin:opencast'
 VIDEO_FILE='video.webm'
 WORKFLOW='fast'
