@@ -2,6 +2,7 @@
 import yaml
 import json
 import requests
+import sys
 from requests.auth import HTTPBasicAuth
 
 config = {}
@@ -18,6 +19,8 @@ def post(path, **kwargs):
             config['server']['username'],
             config['server']['password'])
     server = config['server']['url']
+    if len(sys.argv) >= 2:
+        server = sys.argv[1]
     return requests.post(f'{server}{path}', auth=auth, **kwargs)
 
 
