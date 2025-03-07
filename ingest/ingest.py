@@ -3,6 +3,7 @@ import yaml
 import json
 import requests
 from requests.auth import HTTPBasicAuth
+import binascii
 
 config = {}
 
@@ -49,6 +50,8 @@ def create_episodes():
             for key, value in field.items():
                 if "acl" == key:
                     fields.append((key, (None, acl(value))))
+                elif "identifier" == key:
+                    fields.append((key, (None, f"{value}-{binascii.crc32(config['server']['url'].encode('utf8'))}")))
                 else:
                     fields.append((key, (None, value)))
         endpoint = '/ingest/addMediaPackage/' + config['server']['workflow']
