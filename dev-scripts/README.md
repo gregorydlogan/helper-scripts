@@ -113,7 +113,7 @@ Triggers an Elastic/Opensearch reindex via Opencast's REST endpoint.  By default
 Examples:
 
 ocreindex https://stable.opencast.org/index/rebuild -> Rebuilds all indices on stable.opencast.org
-ocreindex http://localhost:8080/index/rebuild/Search -> Rebuilds just the search index on localhost
+ocreindex http://localhost/index/rebuild/Search -> Rebuilds just the search index on localhost
 
 
 ocindexdrop

@@ -4,7 +4,7 @@ from lti.tool_consumer import ToolConsumer
 
 CONSUMER_KEY = 'CONSUMERKEY'
 CONSUMER_SECRET = 'CONSUMERSECRET'
-LAUNCH_URL = 'http://localhost:8080/lti'
+LAUNCH_URL = 'http://localhost/lti'
 
 
 app = Flask(__name__)

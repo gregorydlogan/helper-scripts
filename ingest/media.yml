@@ -1,5 +1,5 @@
 server:
-  url: http://localhost:8080
+  url: http://localhost
   workflow: fast
   username: admin
   password: opencast

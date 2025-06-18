@@ -6,7 +6,7 @@ randomString() {
   od -vN 16 -An -tx1 /dev/urandom | tr -d " \\n"; echo
 }
 
-HOST="http://localhost:8080"
+HOST="http://localhost"
 USER="admin"
 PASSWORD="opencast"
 WORKFLOW="direct-publication"
