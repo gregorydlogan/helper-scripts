@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET="http://localhost:8080/index/rebuild"
+TARGET="http://localhost/index/rebuild"
 
 if [ $# -ge 1 ]; then
   TARGET="$1"

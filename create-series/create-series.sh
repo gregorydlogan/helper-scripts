@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL=http://localhost:8080
+URL=http://localhost
 USER=admin
 PASSWORD=opencast
 

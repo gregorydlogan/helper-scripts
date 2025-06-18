@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CAPTURE_AGENT="pyca"
-HOST="http://localhost:8080"
+HOST="http://localhost"
 USER="opencast_system_account"
 PASSWORD="CHANGE_ME"
 

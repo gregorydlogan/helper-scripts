@@ -11,7 +11,7 @@ SERIES_SEQ_END="1024"
 PARALlEL_PS=64
 
 # opencast URL
-OC_URL="http://localhost:8080"
+OC_URL="http://localhost"
 #OC_URL="https://octestallinone.virtuos.uos.de"
 
 # opencast digest user name
