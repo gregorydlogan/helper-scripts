@@ -200,7 +200,9 @@ elif [[ "$subcmd" == "merge" ]]; then
         git show "$base_version:$repo_path" >> "$basepath"
         git show "$target_version:$repo_path" >> "$leftpath"
         cd "$prevpwd"
-        $mergetool "$basepath" "$leftpath" "$ansible_path" -o "$ansible_path"
+        tmpout=$(mktemp -u)
+        $mergetool "$basepath" "$leftpath" "$ansible_path" -o "$tmpout"
+        cp "$tmpout" "$ansible_path"
     fi
 
 
