@@ -32,7 +32,7 @@ do
 #do
 
   
-  if [ $(curl -s -o /dev/null -w "%{http_code}\n" -f --digest -u "$FROM_CREDS" -H 'X-Requested-Auth: Digest' $TO_HOST/api/series/$identifier) != "404" ]; then
+  if [ $(curl -s -o /dev/null -w "%{http_code}\n" -f --digest -u "$TO_CREDS" -H 'X-Requested-Auth: Digest' $TO_HOST/api/series/$identifier) != "404" ]; then
     echo "Skipping $identifier, series may already exist!"
     continue
   fi
@@ -41,7 +41,7 @@ do
   #echo "$CATALOGS"
 
   echo "Creating series on $TO_HOST"
-  curl -f --digest -u "$FROM_CREDS" -H 'X-Requested-Auth: Digest' -X POST $TO_HOST/api/series \
+  curl -f --digest -u "$TO_CREDS" -H 'X-Requested-Auth: Digest' -X POST $TO_HOST/api/series \
     -d "metadata=$CATALOGS" \
     -d "acl=$(cat $identifier-acl.json)"
 
