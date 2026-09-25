@@ -7,7 +7,12 @@ FROM_CREDS="opencast_system_account:CHANGE_ME"
 TO_HOST="http://localhost"
 TO_CREDS="opencast_system_account:CHANGE_ME"
 
-curl -s -f --digest -u "$FROM_CREDS" -H 'X-Requested-Auth: Digest' $FROM_HOST/api/series | jq -r '.[].identifier' | while read identifier
+search=""
+if [ $# -eq 1 ]; then
+  search="filter=identifier:$1"
+fi
+
+curl -s -f --digest -u "$FROM_CREDS" -H 'X-Requested-Auth: Digest' $FROM_HOST/api/series?$search | jq -r '.[].identifier' | while read identifier
 do
   #This spits out *just* the primary DC metadata in a semi-useful format, but not the extended metadata!
   #echo "Series"
@@ -31,7 +36,7 @@ do
 #ls *-metadata.json | sed 's/-metadata.json//g' | while read identifier
 #do
 
-  
+
   if [ $(curl -s -o /dev/null -w "%{http_code}\n" -f --digest -u "$TO_CREDS" -H 'X-Requested-Auth: Digest' $TO_HOST/api/series/$identifier) != "404" ]; then
     echo "Skipping $identifier, series may already exist!"
     continue
